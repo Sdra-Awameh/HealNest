@@ -1,0 +1,73 @@
+/* General styles */
+body {
+    background: url('Assets/freepik__upload__88310\ \(1\).jpg') no-repeat center center/cover;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 700px;
+}
+
+.container {
+    width: 350px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding  : 40px;
+    border-radius: 12px;
+   
+    height: 500px;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 00px;
+    margin-bottom: 2px;
+    font-family: Arial;
+    color: #000000;
+
+}
+
+
+label {
+    display: block;
+    font-size: 15x;
+    margin-bottom: 3px;
+    color: #030303;
+    font-family: Arial;
+   
+}
+
+input, select {
+    width: 90%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-bottom: 20px;
+
+}
+
+
+.button {
+    display: block;
+    width: 40%;
+    padding: 10px;
+    background-color: #6d7074;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+.button-group {
+    display: flex;
+    justify-content: 90px;
+    gap: 70px;}

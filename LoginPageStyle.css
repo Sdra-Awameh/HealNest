@@ -1,0 +1,78 @@
+
+
+body {
+    background: url('Assets/freepik__upload__495621.jpg') no-repeat center  fixed;
+    background-size: cover; 
+    margin: 0;
+    padding: 0;
+    height: 100vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo
+{  position: absolute;
+    top: 50px;
+    height: 120px; 
+    width: auto;
+   
+}
+
+.login-container {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    width: 350px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+h2 {
+    margin-bottom: 20px;
+    color: rgb(0, 0, 0);
+    font-family: Arial;
+}
+
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    font-size: 14px;
+    color: rgb(0, 0, 0);
+    font-family: Arial;
+}
+
+.input-group input {
+    width: 90%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+input::placeholder {
+    color: #aaa;
+    font-family: Arial;
+}
+.login-btn {
+    width: 75%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #6d7074;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: Arial;
+}
+
+.login-btn:hover {
+    background: #0056b3;
+}

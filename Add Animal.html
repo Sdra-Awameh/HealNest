@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Animal</title>
+    <link rel="stylesheet" href="AddAnimalStyle.css"> 
+</head>
+<body>
+
+<div class="container">
+    <h2>Add Pets</h2>
+    <form action="add_animal.php" method="POST">
+        <div class="input-group">
+            <label for="animalName">Pet Name</label>
+            <input type="text" id="animalName" name="animal_name" required>
+        </div>
+        <div class="input-group">
+            <label for="animalType">Pet Type</label>
+            <select id="animalType" name="animal_type" required>
+                <option value="">Select Type</option>
+                <option value="Dog">Dog</option>
+                <option value="Cat">Cat</option>
+                <option value="Bird">Bird</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label for="age">Age (in years)</label>
+            <input type="number" id="age" name="age" min="0" required>
+        </div>
+        <div class="input-group">
+            <label for="gender">Gender</label>
+            <select id="gender" name="gender" required>
+                <option value="">Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+        </div>
+        
+        <div class="input-group">
+            <label for="owner">Owner's Name</label>
+            <input type="text" id="owner" name="owner_name" required>
+        </div>
+        <div class="input-group">
+            <label for="checkDate">Medical Check Date</label>
+            <input type="date" id="checkDate" name="check_date" required>
+        </div>
+       <div class="button-group"><button type="submit" class="button">Add Animal</button>
+       <button type="button" class="button"><a href="Add Animal.html"></a> Back </button></div> 
+    </form>
+</div>
+
+</body>
+</html>
