@@ -3,4 +3,4 @@
 </p>
 
 <p align="center">
-  <b>HealNest - Your Trusted Companion in Veterinary Care</b><br>
+  <b> Your Trusted Companion in Veterinary Care</b><br>
