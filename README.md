@@ -3,4 +3,4 @@
 </p>
 
 <p align="center">
-  <h2> Your Trusted Companion in Veterinary Care</h2><br>
+ <br> <h2> Your Trusted Companion in Veterinary Care</h2><br>
