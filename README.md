@@ -6,6 +6,6 @@
    Your Trusted Companion in Veterinary Care managment system
 </h2>
 ---
-# HealNest - Internal Animal Management System
+# HealNest 
 
-HealNest is an internal system designed for employees to manage animal records. It allows employees to add, edit, and delete animal information securely. The system includes an authentication page for login, ensuring only authorized personnel can access and modify animal data.
+>HealNest is an internal system designed for employees to manage animal records. It allows employees to add, edit, and delete animal information securely. The system includes an authentication page for login, ensuring only authorized personnel can access and modify animal data.
