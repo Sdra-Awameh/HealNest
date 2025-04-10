@@ -3,5 +3,5 @@
 </p>
 
 <h2 align="center">
-   Your Trusted Companion in Veterinary Care
+   Your Trusted Companion in Veterinary Care managment system
 </h2>
