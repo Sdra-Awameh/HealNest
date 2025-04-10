@@ -2,5 +2,6 @@
   <img src="Assets/logo.png" alt="HealNest Logo" width="300"/>
 </p>
 
-<p align="center">
- <br> <h2> Your Trusted Companion in Veterinary Care</h2><br>
+<h2 align="center">
+   Your Trusted Companion in Veterinary Care
+</h2>
