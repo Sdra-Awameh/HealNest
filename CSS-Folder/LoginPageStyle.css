@@ -1,7 +1,7 @@
 
 
 body {
-    background: url('Assets/freepik__upload__495621.jpg') no-repeat center  fixed;
+    background: url('../Assets/freepik__upload__495621.jpg') no-repeat center  fixed;
     background-size: cover; 
     margin: 0;
     padding: 0;
@@ -51,7 +51,7 @@ h2 {
 .input-group input {
     width: 90%;
     padding: 8px;
-    border: 1px solid #ccc;
+    border: 1px solid #000000;
     border-radius: 5px;
     font-size: 14px;
     margin-bottom: 10px;

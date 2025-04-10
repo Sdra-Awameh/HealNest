@@ -1,6 +1,6 @@
 /* General styles */
 body {
-    background: url('Assets/freepik__upload__88310\ \(1\).jpg') no-repeat center center/cover;
+    background: url('../Assets/freepik__upload__88310\ \(1\).jpg') no-repeat center center/cover;
     margin: 0;
     padding: 0;
     display: flex;

@@ -5,7 +5,7 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
-  background: url('Assets/freepik__upload__81071.jpg') no-repeat  ;
+  background: url('../Assets/freepik__upload__81071.jpg') no-repeat  ;
   background-size: cover; 
   margin: 0;
   padding: 0;
@@ -50,21 +50,11 @@ nav ul li a {
 
 
 
-/* Logout Button */
-.logout-btn {
-  background: red;
-  color: white;
-  padding: 1px;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
 
 .top-nav {
   position: fixed; /* Sticks the header at the top */
   top: 0;
-  left: 0;
+  left: 20%; 
   width: 96.6%;
   height: 60px; /* Adjust height as needed */
  
@@ -93,4 +83,11 @@ nav ul {
   padding: 8px 15px;
   cursor: pointer;
   border-radius: 5px;
+}
+.logo {
+  position: absolute; 
+  top: 10px; 
+  left: 10px; 
+  height: 70px; 
+  width: 90px;
 }
