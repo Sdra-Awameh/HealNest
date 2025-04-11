@@ -3,27 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title>HealNest - Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../CSS-Folder/LoginPageStyle.css">
-   
 </head>
-<body> 
-    <img src="../Assets/logo.png" alt="Logo" class="logo">
+<body>
     <div class="login-container">
-        <h2>Login</h2>
-        <form action="dashboard.html" method="POST">
-          <div class="input-group">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" placeholder="Enter your username" required>
+        <div class="logo-container">
+            <img src="../Assets/logo.png" alt="HealNest Logo" class="logo">
+           
+            <p class="tagline">Veterinary Clinic Management System</p>
         </div>
-        <div class="input-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" placeholder="Enter your password" required>
-        </div>
+        
+        <form id="login-form">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" class="form-control" placeholder="Enter your username" required>
+                
+            </div>
             
-            <button type="submit" class="login-btn">Login</button>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" class="form-control" placeholder="Enter your password" required>
+            </div>
+            
+            <button type="submit" class="btn">Login</button>
         </form>
+        
+        
     </div>
-    
+
+   
 </body>
 </html>
