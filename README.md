@@ -14,6 +14,18 @@
 
 ---
 
+## 💡 Problem Statement
+>In a veterinary clinic, daily operations involve recording animal data, monitoring vaccination schedules, tracking diets and vitamin intake, and managing the inventory of medical and nutritional supplies. In the absence of a structured digital system, clinics often rely on traditional methods such as paper records or Excel spreadsheets. This approach results in several challenges:
+
+>- Difficulty accessing animal records quickly  
+>- Risk of missing important information (e.g., vaccination or examination dates)  
+>- Increased staff workload due to manual documentation  
+>- Inefficient tracking of inventory usage, causing unexpected shortages of essential supplies  
+
+>In a fast-paced and multitasking environment like a veterinary clinic, these issues can significantly reduce operational efficiency and may even result in compromised animal care. Furthermore, the lack of digital organization weakens internal workflows and coordination among staff members.
+
+---
+
  ## 👥 Team Members
 
 Each team member contributed to different aspects of the project, ensuring a well-rounded and structured development process.  
