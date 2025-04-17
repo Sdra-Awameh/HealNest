@@ -7,7 +7,7 @@
     --text-color: #333333;         /* Dark gray for text */
     --light-gray: #f5f5f5;         /* Light gray for backgrounds */
     --mid-gray: #e0e0e0;           /* Medium gray for borders */
-    --error-color: #f44336;        /* Red for errors/alerts */
+
     --success-color: #4CAF50;      /* Green for success messages */
     --border-radius: 8px;          /* Rounded corners for elements */
     --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Subtle shadow */
