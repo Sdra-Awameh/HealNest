@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealNest - Edit Pet Record</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS-Folder/AddAnimalStyle.css">
+</head>
+<body>
+    <div class="page-container">
+        <div class="form-container">
+            <div class="form-header">
+                <h2>🐾 Edit Pet Record</h2>
+                <p class="subtitle">Update pet details for existing record</p>
+            </div>
+
+            <form action="update_animal.php" method="POST" id="editPetForm">
+                <input type="hidden" id="petId" name="pet_id" value="">
+                
+                <div class="form-section">
+                    <h3>Pet Information</h3>
+                    
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="animalName">Pet Name</label>
+                            <input type="text" id="animalName" name="animal_name" placeholder="Enter pet name" required>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="animalType">Pet Type</label>
+                            <select id="animalType" name="animal_type" required>
+                                <option value="" disabled>Select type</option>
+                                <option value="Dog">Dog</option>
+                                <option value="Cat">Cat</option>
+                                <option value="Bird">Bird</option>
+                                <option value="Rabbit">Rabbit</option>
+                                <option value="Hamster">Hamster</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="breed">Breed</label>
+                            <input type="text" id="breed" name="breed" placeholder="Enter breed">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="color">Color</label>
+                            <input type="text" id="color" name="color" placeholder="Enter pet color">
+                        </div>
+                    </div>
+                    
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="age">Age (years)</label>
+                            <input type="number" id="age" name="age" min="0" step="0.1" placeholder="0.0" required>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="gender">Gender</label>
+                            <select id="gender" name="gender" required>
+                                <option value="" disabled>Select gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group full-width">
+                        <label for="microchip">Microchip Number (if available)</label>
+                        <input type="text" id="microchip" name="microchip" placeholder="Enter microchip number">
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h3>Owner Information</h3>
+                    
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="owner">Owner's Name</label>
+                            <input type="text" id="owner" name="owner_name" placeholder="Enter owner's name" required>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="ownerPhone">Owner's Phone</label>
+                            <input type="tel" id="ownerPhone" name="owner_phone" placeholder="Enter phone number">
+                        </div>
+                    </div>
+                    
+                    <div class="input-group full-width">
+                        <label for="ownerEmail">Owner's Email</label>
+                        <input type="email" id="ownerEmail" name="owner_email" placeholder="Enter email address">
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h3>Medical Information</h3>
+                    
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="checkDate">Medical Check Date</label>
+                            <input type="date" id="checkDate" name="check_date" required>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="nextCheckup">Next Checkup</label>
+                            <input type="date" id="nextCheckup" name="next_checkup">
+                        </div>
+                    </div>
+                    
+                    <div class="input-group full-width">
+                        <label for="medicalNotes">Medical Notes</label>
+                        <textarea id="medicalNotes" name="medical_notes" rows="3" placeholder="Enter any important medical information"></textarea>
+                    </div>
+                </div>
+                
+                <div class="button-group">
+                    <button type="submit" class="button primary">Update Pet Record</button>
+                    <button type="button" class="button secondary" onclick="window.location.href='dashboard.html'">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Fetch pet data and populate form
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get pet ID from URL parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const petId = urlParams.get('id');
+            
+            if (petId) {
+                document.getElementById('petId').value = petId;
+                
+                // In a real application, you would fetch the pet data from the server
+                // This is a placeholder for demonstration purposes
+                // fetchPetData(petId);
+                
+                // For demo, we'll simulate data loading
+                console.log('Loading pet data for ID:', petId);
+            } else {
+                console.error('No pet ID provided in URL');
+                alert('Error: No pet ID specified');
+                window.location.href = 'dashboard.html';
+            }
+        });
+        
+        // Form validation
+        document.getElementById('editPetForm').addEventListener('submit', function(e) {
+            // Add custom validation if needed
+            console.log('Form submitted for update');
+        });
+        
+        // Simulated function to fetch pet data
+        function fetchPetData(petId) {
+            // In a real application, this would be an AJAX call to your backend
+            // Example:
+            // fetch(`get_pet.php?id=${petId}`)
+            //     .then(response => response.json())
+            //     .then(data => populateForm(data))
+            //     .catch(error => console.error('Error fetching pet data:', error));
+        }
+        
+        // Function to populate the form with existing pet data
+        function populateForm(data) {
+            // Fill in the form fields with the retrieved data
+            document.getElementById('animalName').value = data.animal_name;
+            document.getElementById('animalType').value = data.animal_type;
+            document.getElementById('breed').value = data.breed;
+            document.getElementById('color').value = data.color;
+            document.getElementById('age').value = data.age;
+            document.getElementById('gender').value = data.gender;
+            document.getElementById('microchip').value = data.microchip;
+            document.getElementById('owner').value = data.owner_name;
+            document.getElementById('ownerPhone').value = data.owner_phone;
+            document.getElementById('ownerEmail').value = data.owner_email;
+            document.getElementById('checkDate').value = data.check_date;
+            document.getElementById('nextCheckup').value = data.next_checkup;
+            document.getElementById('medicalNotes').value = data.medical_notes;
+        }
+    </script>
+</body>
+</html>
