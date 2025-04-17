@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>HealNest - Edit Pet Record</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS-Folder/EditAnimalStyle.css" />
+</head>
+<body>
+    <div class="page-container">
+        <div class="form-container">
+            <div class="form-header">
+                <h2>🐾 Edit Pet Record</h2>
+                <p class="subtitle">Update pet details below</p>
+            </div>
+
+            <form action="edit_animal.php" method="POST" id="editPetForm">
+                <div class="form-section">
+                    <h3>Pet Information</h3>
+
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="animalName">Pet Name</label>
+                            <input type="text" id="animalName" name="animal_name" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="animalType">Pet Type</label>
+                            <select id="animalType" name="animal_type" required>
+                                <option value="" disabled>Select type</option>
+                                <option value="Dog">Dog</option>
+                                <option value="Cat">Cat</option>
+                                <option value="Bird">Bird</option>
+                                <option value="Rabbit">Rabbit</option>
+                                <option value="Hamster">Hamster</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="breed">Breed</label>
+                            <input type="text" id="breed" name="breed">
+                        </div>
+                        <div class="input-group">
+                            <label for="color">Color</label>
+                            <input type="text" id="color" name="color">
+                        </div>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="age">Age (years)</label>
+                            <input type="number" id="age" name="age" min="0" step="0.1" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="gender">Gender</label>
+                            <select id="gender" name="gender" required>
+                                <option value="" disabled>Select gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="input-group full-width">
+                        <label for="microchip">Microchip Number</label>
+                        <input type="text" id="microchip" name="microchip">
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Owner Information</h3>
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="owner">Owner's Name</label>
+                            <input type="text" id="owner" name="owner_name" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="ownerPhone">Owner's Phone</label>
+                            <input type="tel" id="ownerPhone" name="owner_phone">
+                        </div>
+                    </div>
+                    <div class="input-group full-width">
+                        <label for="ownerEmail">Owner's Email</label>
+                        <input type="email" id="ownerEmail" name="owner_email">
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Medical Information</h3>
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="checkDate">Medical Check Date</label>
+                            <input type="date" id="checkDate" name="check_date" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="nextCheckup">Next Checkup</label>
+                            <input type="date" id="nextCheckup" name="next_checkup">
+                        </div>
+                    </div>
+                    <div class="input-group full-width">
+                        <label for="medicalNotes">Medical Notes</label>
+                        <textarea id="medicalNotes" name="medical_notes" rows="3"></textarea>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button type="submit" class="button primary">Update Pet Record</button>
+                    <button type="button" class="button secondary" onclick="window.location.href='dashboard.html'">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('editPetForm').addEventListener('submit', function(e) {
+            console.log('Form submitted');
+        });
+    </script>
+</body>
+</html>
