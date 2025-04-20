@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PetCare Pro - Veterinary Management System</title>
+    <title>HealNest - Veterinary Management System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../CSS-Folder/HomePageStyle.css">
 </head>
+
 <body>
     <!-- Header -->
     <header>
@@ -13,16 +18,15 @@
             <div class="header-content">
                 <div class="logo">
                     <div class="logo-icon">
-                        <img src=C:\Users\Toleen\OneDrive\Desktop\HealNest\Assets\logo2.png>
+                        <img src="../Assets/logo2.png" alt="Logo">
                     </div>
                     <span>HealNest</span>
                 </div>
                 <div class="user-menu">
-                    <div class="language-toggle" onclick="toggleLanguage()">
-                        <span id="currentLang">English</span>
-                    </div>
                     <div class="user-profile">
-                        <div class="user-avatar">V</div>
+                        <div class="user-avatar">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
                         <span>Vet Admin</span>
                     </div>
                 </div>
@@ -32,153 +36,213 @@
 
     <!-- Main Content -->
     <main class="container dashboard">
-       
-        
         <!-- Search Bar -->
         <div class="search-bar">
             <input type="text" class="search-input" placeholder="Search animals, owners, inventory...">
-            <span class="search-icon-input">🔍</span>
+            <i class="fas fa-search search-icon-input"></i>
         </div>
-        
+
         <!-- Quick Stats -->
         <div class="quick-stats">
             <div class="stat-card">
                 <div class="stat-card-title">Total Animals</div>
                 <div class="stat-card-value">127</div>
-                <div class="stat-card-change">+4 this week</div>
+                <div class="stat-card-change">
+                    <i class="fas fa-arrow-up text-green-500"></i>
+                    +4 this week
+                </div>
             </div>
             <div class="stat-card">
                 <div class="stat-card-title">Upcoming Appointments</div>
                 <div class="stat-card-value">18</div>
-                <div class="stat-card-change">Next: Today at 10:30</div>
+                <div class="stat-card-change">
+                    <i class="fas fa-calendar-day text-blue-500"></i>
+                    Next: Today at 10:30
+                </div>
             </div>
             <div class="stat-card">
                 <div class="stat-card-title">Due Vaccinations</div>
                 <div class="stat-card-value">12</div>
-                <div class="stat-card-change">Send reminders</div>
+                <div class="stat-card-change">
+                    <i class="fas fa-bell text-yellow-500"></i>
+                    Send reminders
+                </div>
             </div>
             <div class="stat-card">
                 <div class="stat-card-title">Inventory Alerts</div>
                 <div class="stat-card-value">3</div>
-                <div class="stat-card-change">Low stock items</div>
+                <div class="stat-card-change">
+                    <i class="fas fa-exclamation-triangle text-red-500"></i>
+                    Low stock items
+                </div>
             </div>
         </div>
-        
+
         <!-- Main Features -->
         <div class="features-grid">
-            <div class="feature-card" onclick="navigateTo('animals')">
-                <div class="feature-icon animal-icon">🐾</div>
-                <div class="feature-title">Animal Management</div>
+            <div class="feature-card animal-management" onclick="navigateTo('animals')">
+                <div class="feature-icon animal-icon">
+                    <i class="fas fa-paw"></i>
+                </div>
+                <div class="feature-title">
+                    Animal Management
+                    <i class="fas fa-star priority-indicator"></i>
+                </div>
                 <div class="feature-description">Add, update, and manage animal records</div>
             </div>
             <div class="feature-card" onclick="navigateTo('medical')">
-                <div class="feature-icon medical-icon">💉</div>
+                <div class="feature-icon medical-icon">
+                    <i class="fas fa-syringe"></i>
+                </div>
                 <div class="feature-title">Medical Records</div>
                 <div class="feature-description">Track vaccinations and treatments</div>
             </div>
             <div class="feature-card" onclick="navigateTo('inventory')">
-                <div class="feature-icon inventory-icon">📦</div>
+                <div class="feature-icon inventory-icon">
+                    <i class="fas fa-box"></i>
+                </div>
                 <div class="feature-title">Inventory</div>
                 <div class="feature-description">Manage supplies, food, and medications</div>
             </div>
             <div class="feature-card" onclick="navigateTo('owners')">
-                <div class="feature-icon owner-icon">👤</div>
+                <div class="feature-icon owner-icon">
+                    <i class="fas fa-user"></i>
+                </div>
                 <div class="feature-title">Owner Management</div>
                 <div class="feature-description">Manage pet owners and their details</div>
             </div>
             <div class="feature-card" onclick="navigateTo('appointments')">
-                <div class="feature-icon appointment-icon">📅</div>
+                <div class="feature-icon appointment-icon">
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
                 <div class="feature-title">Appointments</div>
                 <div class="feature-description">Schedule and manage appointments</div>
             </div>
             <div class="feature-card" onclick="navigateTo('billing')">
-                <div class="feature-icon billing-icon">💰</div>
+                <div class="feature-icon billing-icon">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                </div>
                 <div class="feature-title">Billing</div>
                 <div class="feature-description">Generate invoices and manage payments</div>
             </div>
-            <div class="feature-card" onclick="navigateTo('reports')">
-                <div class="feature-icon report-icon">📊</div>
+            <!-- <div class="feature-card" onclick="navigateTo('reports')">
+                <div class="feature-icon report-icon">
+                    <i class="fas fa-chart-bar"></i>
+                </div>
                 <div class="feature-title">Reports</div>
                 <div class="feature-description">Generate and export data reports</div>
-            </div>
-           class="feature-description">Configure system preferences</div>
-            </div>
+            </div> -->
+            <!-- <div class="feature-card" onclick="navigateTo('settings')">
+                <div class="feature-icon settings-icon">
+                    <i class="fas fa-cog"></i>
+                </div>
+                <div class="feature-title">Settings</div>
+                <div class="feature-description">Configure system preferences</div>
+            </div> -->
         </div>
-        
+
         <!-- Recent Activity -->
-        <h2 class="section-title">Recent Activity</h2>
+        <!-- <h2 class="section-title">
+            <i class="fas fa-history text-blue-500"></i>
+            Recent Activity
+        </h2>
         <div class="activity-list">
             <div class="activity-item">
-                <div class="activity-icon" style="background-color: #3498db;">🐶</div>
+                <div class="activity-icon" style="background-color: #3498db;">
+                    <i class="fas fa-dog"></i>
+                </div>
                 <div class="activity-details">
                     <div class="activity-title">Max (Golden Retriever) received a vaccination</div>
-                    <div class="activity-time">Today, 9:45 AM</div>
+                    <div class="activity-time">
+                        <i class="far fa-clock"></i>
+                        Today, 9:45 AM
+                    </div>
                 </div>
-                <div class="activity-action">View</div>
+                <div class="activity-action">
+                    <i class="fas fa-eye"></i>
+                    View
+                </div>
             </div>
             <div class="activity-item">
-                <div class="activity-icon" style="background-color: #2ecc71;">👤</div>
+                <div class="activity-icon" style="background-color: #2ecc71;">
+                    <i class="fas fa-user-plus"></i>
+                </div>
                 <div class="activity-details">
                     <div class="activity-title">New owner registered: Sarah Johnson</div>
-                    <div class="activity-time">Yesterday, 3:20 PM</div>
+                    <div class="activity-time">
+                        <i class="far fa-clock"></i>
+                        Yesterday, 3:20 PM
+                    </div>
                 </div>
-                <div class="activity-action">View</div>
+                <div class="activity-action">
+                    <i class="fas fa-eye"></i>
+                    View
+                </div>
             </div>
             <div class="activity-item">
-                <div class="activity-icon" style="background-color: #e74c3c;">📦</div>
+                <div class="activity-icon" style="background-color: #e74c3c;">
+                    <i class="fas fa-exclamation-circle"></i>
+                </div>
                 <div class="activity-details">
                     <div class="activity-title">Inventory alert: Cat food running low</div>
-                    <div class="activity-time">Yesterday, 11:15 AM</div>
+                    <div class="activity-time">
+                        <i class="far fa-clock"></i>
+                        Yesterday, 11:15 AM
+                    </div>
                 </div>
-                <div class="activity-action">Restock</div>
+                <div class="activity-action">
+                    <i class="fas fa-plus-circle"></i>
+                    Restock
+                </div>
             </div>
             <div class="activity-item">
-                <div class="activity-icon" style="background-color: #f39c12;">📅</div>
+                <div class="activity-icon" style="background-color: #f39c12;">
+                    <i class="fas fa-calendar-check"></i>
+                </div>
                 <div class="activity-details">
                     <div class="activity-title">Appointment scheduled: Luna (Cat) for checkup</div>
-                    <div class="activity-time">Apr 10, 2025, 2:30 PM</div>
+                    <div class="activity-time">
+                        <i class="far fa-clock"></i>
+                        Apr 10, 2025, 2:30 PM
+                    </div>
                 </div>
-                <div class="activity-action">View</div>
+                <div class="activity-action">
+                    <i class="fas fa-eye"></i>
+                    View
+                </div>
             </div>
             <div class="activity-item">
-                <div class="activity-icon" style="background-color: #9b59b6;">💰</div>
+                <div class="activity-icon" style="background-color: #9b59b6;">
+                    <i class="fas fa-file-invoice"></i>
+                </div>
                 <div class="activity-details">
                     <div class="activity-title">Invoice #1042 paid by David Smith</div>
-                    <div class="activity-time">Apr 9, 2025, 10:05 AM</div>
+                    <div class="activity-time">
+                        <i class="far fa-clock"></i>
+                        Apr 9, 2025, 10:05 AM
+                    </div>
                 </div>
-                <div class="activity-action">View</div>
+                <div class="activity-action">
+                    <i class="fas fa-eye"></i>
+                    View
+                </div>
             </div>
-        </div>
+        </div> -->
     </main>
 
     <!-- Footer -->
     <footer class="container">
-        <p>© 2025 PetCare Pro - Veterinary Management System | Version 1.0</p>
+        <p>© 2025 HealNest - Veterinary Management System | Version 1.0</p>
     </footer>
 
     <script>
-        // Toggle between languages (for RTL support)
-        function toggleLanguage() {
-            const html = document.documentElement;
-            const currentLang = document.getElementById('currentLang');
-            
-            if (html.getAttribute('dir') === 'rtl') {
-                html.setAttribute('dir', 'ltr');
-                html.setAttribute('lang', 'en');
-                currentLang.textContent = 'English';
-            } else {
-                html.setAttribute('dir', 'rtl');
-                html.setAttribute('lang', 'ar');
-                currentLang.textContent = 'العربية';
-            }
-        }
-        
         // Navigation function
         function navigateTo(section) {
-            console.log(`Navigating to ${section} section`);
+            console.log(Navigating to ${section} section);
             // In a real app, this would handle navigation
-            alert(`Navigating to ${section} section`);
+            alert(Navigating to ${section} section);
         }
     </script>
 </body>
+
 </html>
