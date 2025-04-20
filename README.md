@@ -30,18 +30,24 @@
 ## 🖼️ User Interface Designs
 
 ### 🔐 Login Page
-![Login](./path-to-your-image/61a51d49-4a68-4248-bc15-6c136a63444a.png)
+ <p align="left">
+  <img src="Assets/Screenshot 2025-04-20 230329.png" alt="Add Animal Page" width="300"/>
+</p>
 
+  - Secure authentication for employees
+  - Validates email and password
+  
 ---
 
 ### 🏠  Home Page
-![Home](https://via.placeholder.com/600x350.png?text=Home+Page+Design)
 
 ---
 
 ### ➕  Add Animal Page
 <p align="left">
-  <img src="Screenshot 2025-04-20 230304.png" alt="Add Animal Page" width="300"/>
+  <img src="Assets/Screenshot 2025-04-20 230304.png" alt="Add Animal Page" width="300"/>
+  <img src="Assets/Screenshot 2025-04-20 230304.png" alt="Add Animal Page" width="300"/>
+</p>
 </p>
 
 - Animal form with dropdowns
@@ -51,7 +57,11 @@
 ---
 
 ### ✏️  Edit Animal Page
-![Edit](https://via.placeholder.com/600x350.png?text=Edit+Animal+Design)
+<p align="left">
+  <img src="Assets/Screenshot 2025-04-20 234415.png" alt="Add Animal Page" width="300"/>
+  <img src="Assets/Screenshot 2025-04-20 234442.png" alt="Add Animal Page" width="300"/>
+</p>
+
 - Pre-filled form
 - Delete option
 
