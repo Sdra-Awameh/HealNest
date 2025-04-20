@@ -35,6 +35,36 @@
 
 
 
+## 🖼️ User Interface Designs
+
+### 🔐 Login Page
+![Login](./path-to-your-image/61a51d49-4a68-4248-bc15-6c136a63444a.png)
+
+---
+
+### 🏠 Suggested Home Page
+![Home](https://via.placeholder.com/600x350.png?text=Home+Page+Design)
+- Dashboard with summaries
+- Sidebar navigation
+- Quick alerts and messages
+
+---
+
+### ➕ Suggested Add Animal Page
+![Add](https://via.placeholder.com/600x350.png?text=Add+Animal+Design)
+- Animal form with dropdowns
+- Upload option
+- Save & Cancel buttons
+
+---
+
+### ✏️ Suggested Edit Animal Page
+![Edit](https://via.placeholder.com/600x350.png?text=Edit+Animal+Design)
+- Pre-filled form
+- Delete option
+- Record history section
+
+
 ## 👥 Team Members
 
 ### 🧑‍💻 **Sdra Awameh**
