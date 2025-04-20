@@ -27,14 +27,6 @@
 
 ---
 
-## 🔐 HealNest Login Page
-
-<p align="left">
-  <img src="Assets/Screenshot 2025-04-20 230329.png" alt="HealNest Logo" width="300"/>
-</p>
-
-
-
 ## 🖼️ User Interface Designs
 
 ### 🔐 Login Page
@@ -42,27 +34,27 @@
 
 ---
 
-### 🏠 Suggested Home Page
+### 🏠  Home Page
 ![Home](https://via.placeholder.com/600x350.png?text=Home+Page+Design)
-- Dashboard with summaries
-- Sidebar navigation
-- Quick alerts and messages
 
 ---
 
-### ➕ Suggested Add Animal Page
-![Add](https://via.placeholder.com/600x350.png?text=Add+Animal+Design)
+### ➕  Add Animal Page
+<p align="left">
+  <img src="Screenshot 2025-04-20 230304.png" alt="Add Animal Page" width="300"/>
+</p>
+
 - Animal form with dropdowns
 - Upload option
 - Save & Cancel buttons
 
 ---
 
-### ✏️ Suggested Edit Animal Page
+### ✏️  Edit Animal Page
 ![Edit](https://via.placeholder.com/600x350.png?text=Edit+Animal+Design)
 - Pre-filled form
 - Delete option
-- Record history section
+
 
 
 ## 👥 Team Members
