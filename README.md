@@ -46,13 +46,12 @@
 ### ➕  Add Animal Page
 <p align="left">
   <img src="Assets/Screenshot 2025-04-20 230304.png" alt="Add Animal Page" width="300"/>
-  <img src="Assets/Screenshot 2025-04-20 230304.png" alt="Add Animal Page" width="300"/>
+  <img src="Assets/Screenshot 2025-04-20 235647.png" alt="Add Animal Page" width="300"/>
 </p>
 </p>
 
 - Animal form with dropdowns
-- Upload option
-- Save & Cancel buttons
+- Add & Cancel buttons
 
 ---
 
@@ -63,7 +62,7 @@
 </p>
 
 - Pre-filled form
-- Delete option
+- Update & Cancel buttons
 
 
 
