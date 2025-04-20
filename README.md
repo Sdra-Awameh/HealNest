@@ -40,6 +40,12 @@
 ---
 
 ### 🏠  Home Page
+<p align="left">
+  <img src="Assets/Screenshot 2025-04-21 023241.png" alt="HomePage" width="300"/>
+</p>
+
+- Managment Card
+- Medical Record Card
 
 ---
 
