@@ -70,7 +70,17 @@
 - Pre-filled form
 - Update & Cancel buttons
 
+---
 
+### ⚠️ Delete Page
+<p align="left">
+  <img src="Assets/Screenshot 2025-04-21 005140.png" alt="Add Animal Page" width="300"/>
+</p>
+</p>
+
+- Delete & Cancel buttons
+
+  ---
 
 ## 👥 Team Members
 
