@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Register - HealNest</title>
+  <link rel="stylesheet" href="../CSS-Folder/RegisterPage.css">
+</head>
+<body>
+
+  <div class="register-container">
+    <div class="logo-container">
+      <img src="../Assets/logo.png" alt="HealNest Logo" class="logo">
+      <div class="tagline">Create a user account to manage your pet’s care 🐶</div>
+    </div>
+
+    <form action="register-user.php" method="POST">
+      <div class="form-group">
+        <label for="username">Full Name</label>
+        <input type="text" id="username" name="username" class="form-control" required />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" class="form-control" required />
+      </div>
+
+      <div class="form-group">
+        <label for="Phone">Phone number</label>
+        <input type="text" id="Phone" name="Phone" class="form-control" required />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" class="form-control" required />
+      </div>
+
+      <div class="form-group">
+        <label for="confirm_password">Confirm Password</label>
+        <input type="password" id="confirm_password" name="confirm_password" class="form-control" required />
+      </div>
+
+      <button type="submit" class="btn">
+        <span class="paw-icon">🐾</span>
+        Register
+      </button>
+
+      <div style="text-align: center; margin-top: 15px;">
+        Already have an account? <a href="LoginPage.html" style="color: var(--secondary-color); text-decoration: underline;">Login here</a>
+      </div>
+    </div>
+    </form>
+
+  
+
+</body>
+</html>
