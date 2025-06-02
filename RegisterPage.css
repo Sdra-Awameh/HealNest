@@ -17,7 +17,7 @@
   }
   
   body {
-    background: url('../Assets/IMG-20250508-WA0012.jpg') no-repeat center fixed;
+    background: url('Assets/IMG-20250508-WA0012.jpg') no-repeat center fixed;
     background-size: cover;
     display: flex;
     justify-content: center;
