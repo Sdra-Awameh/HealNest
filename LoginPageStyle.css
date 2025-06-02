@@ -17,7 +17,7 @@
   }
   
   body {
-    background: url('../Assets/freepik__upload__495621.jpg') no-repeat center fixed;
+    background: url('Assets/freepik__upload__495621.jpg') no-repeat center fixed;
     background-size: cover;
     display: flex;
     justify-content: center;
@@ -68,6 +68,7 @@
   }
   
   .form-control {
+    margin-bottom: 10px;
     width: 100%;
     padding: 12px 15px;
     border: 1px solid #ddd;

@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HealNest - Login</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../CSS-Folder/LoginPageStyle.css">
+    <link rel="stylesheet" href="LoginPageStyle.css">
 </head>
 <body>
     <div class="login-container">
         <div class="logo-container">
-            <img src="../Assets/logo.png" alt="HealNest Logo" class="logo">
+            <img src="Assets/logo.png" alt="HealNest Logo" class="logo">
            
             <p class="tagline">Veterinary Clinic Management System</p>
         </div>
@@ -19,10 +19,6 @@
             <div class="form-group">
                 <label for="username">Username</label>
                 <input type="text" id="username" class="form-control" placeholder="Enter your username" required>
-                
-            </div>
-            
-            <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" id="password" class="form-control" placeholder="Enter your password" required>
             </div>

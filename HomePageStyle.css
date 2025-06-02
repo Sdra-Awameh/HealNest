@@ -6,7 +6,7 @@
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: url('../Assets/freepik__upload__81071.jpg') no-repeat center fixed;
+  background: url('Assets/freepik__upload__81071.jpg') no-repeat center fixed;
   background-size: cover;
   justify-content: center;
   align-items: center;

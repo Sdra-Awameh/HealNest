@@ -20,7 +20,7 @@
   }
   
   body {
-    background: url('../Assets/freepik__upload__495621.jpg') no-repeat center fixed;
+    background: url('Assets/freepik__upload__495621.jpg') no-repeat center fixed;
     background-size: cover;;
     color: var(--text-color);
     line-height: 1.6;
