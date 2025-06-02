@@ -15,17 +15,36 @@
             <p class="tagline">Veterinary Clinic Management System</p>
         </div>
         
-         <form id="login-form">
+         <form method="post" id="login-form" action="Login-user-back.php">
+          <?php
+session_start();
+if (isset($_SESSION['login_error'])) {
+    echo "<div style='
+        background-color: #ffe0e0;
+        color: #a94442;
+        padding: 12px 16px;
+        border: 1px solid #f5c6cb;
+        border-radius: 8px;
+        font-size: 15px;
+        margin-bottom: 15px;
+        text-align: center;
+        font-family: Roboto, sans-serif;
+    '>" . $_SESSION['login_error'] . "</div>";
+    unset($_SESSION['login_error']); 
+}
+?>
+
+
             <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" class="form-control" placeholder="Enter your username" required>
+                <label for="email">ُEmail</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required>
                 <label for="password">Password</label>
-                <input type="password" id="password" class="form-control" placeholder="Enter your password" required>
+                <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password" required>
             </div>
          
-            <button type="submit" class="btn">Login</button>
+            <button type="submit" class="btn" name="login">Login</button>
             <div style="text-align: center; margin-top: 15px;">
-                Don't have an account? <a href="RegisterPage.html" style="color: var(--secondary-color); text-decoration: underline;">Register here</a>
+                Don't have an account? <a href="RegisterPageFront.php" style="color: var(--secondary-color); text-decoration: underline;">Register here</a>
               </div>
          </form>
        
