@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="Assets/logo.png" alt="HealNest Logo" width="300"/>
+  <img src="Assets/images/logo.png" alt="HealNest Logo" width="300"/>
 </p>
 
 <h2 align="center">
@@ -31,7 +31,7 @@
 
 ### 🔐 Login Page
  <p align="left">
-  <img src="Assets/Screenshot 2025-04-20 230329.png" alt="Add Animal Page" width="300"/>
+  <img src="Assets/images/Screenshot 2025-04-20 230329.png" alt="Add Animal Page" width="300"/>
 </p>
 
   - Secure authentication for employees
@@ -41,7 +41,7 @@
 
 ### 🏠  Home Page
 <p align="left">
-  <img src="Assets/Screenshot 2025-04-21 023241.png" alt="HomePage" width="300"/>
+  <img src="Assets/images/Screenshot 2025-06-03 020922.png" alt="HomePage" width="300"/>
 </p>
 
 - Managment Card
@@ -51,8 +51,8 @@
 
 ### ➕  Add Animal Page
 <p align="left">
-  <img src="Assets/Screenshot 2025-04-20 230304.png" alt="Add Animal Page" width="300"/>
-  <img src="Assets/Screenshot 2025-04-20 235647.png" alt="Add Animal Page" width="300"/>
+  <img src="Assets/images/Screenshot 2025-04-20 230304.png" alt="Add Animal Page" width="300"/>
+  <img src="Assets/images/Screenshot 2025-04-20 235647.png" alt="Add Animal Page" width="300"/>
 </p>
 </p>
 
@@ -63,8 +63,8 @@
 
 ### ✏️  Edit Animal Page
 <p align="left">
-  <img src="Assets/Screenshot 2025-04-20 234415.png" alt="Add Animal Page" width="300"/>
-  <img src="Assets/Screenshot 2025-04-20 234442.png" alt="Add Animal Page" width="300"/>
+  <img src="Assets/images/Screenshot 2025-04-20 234415.png" alt="Add Animal Page" width="300"/>
+  <img src="Assets/images/Screenshot 2025-04-20 234442.png" alt="Add Animal Page" width="300"/>
 </p>
 
 - Pre-filled form
@@ -74,7 +74,7 @@
 
 ### ⚠️ Delete Page
 <p align="left">
-  <img src="Assets/Screenshot 2025-04-21 005140.png" alt="Add Animal Page" width="300"/>
+  <img src="Assets/images/Screenshot 2025-04-21 005140.png" alt="Add Animal Page" width="300"/>
 </p>
 </p>
 
