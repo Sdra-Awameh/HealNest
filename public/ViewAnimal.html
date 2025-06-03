@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealNest - Modern Pet Records</title>    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Modern HealNest - Pet Records Styling with Baby Blue Theme */
+        :root {
+            --primary-gradient: linear-gradient(135deg, #87CEEB 0%, #B0E0E6 100%);
+            --secondary-gradient: linear-gradient(135deg, #4682B4 0%, #5F9EA0 100%);
+            --accent-gradient: linear-gradient(135deg, #B0C4DE 0%, #E6F3FF 100%);
+            --dark-gradient: linear-gradient(135deg, #2F4F4F 0%, #4682B4 100%);
+            --success-gradient: linear-gradient(135deg, #20B2AA 0%, #48CAE4 100%);
+            --warning-gradient: linear-gradient(135deg, #FF6B6B 0%, #FF8E8E 100%);
+            
+            --glass-bg: rgba(255, 255, 255, 0.25);
+            --glass-border: rgba(255, 255, 255, 0.3);
+            --text-primary: #2F4F4F;
+            --text-secondary: #708090;
+            
+            --shadow-soft: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+            --shadow-medium: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+            --shadow-large: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            
+            --border-radius: 16px;
+            --border-radius-large: 24px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+                        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('../Assets/images/IMG-20250508-WA0013.jpg') no-repeat center fixed;
+            background-size: cover;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Animated Background Elements */
+        .bg-decoration {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-shape {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(135, 206, 235, 0.2);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape-1 { width: 100px; height: 100px; top: 10%; left: 10%; animation-delay: 0s; }
+        .shape-2 { width: 150px; height: 150px; top: 60%; right: 15%; animation-delay: 2s; }
+        .shape-3 { width: 80px; height: 80px; bottom: 20%; left: 20%; animation-delay: 4s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .page-container {
+            padding: 2rem;
+            max-width: 1600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Modern Glassmorphism Header */
+        .page-header {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--border-radius-large);
+            padding: 3rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-large);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--secondary-gradient);
+        }
+
+        .page-header h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            background: var(--dark-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            animation: slideInDown 0.8s ease-out;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            font-weight: 400;
+            animation: slideInUp 0.8s ease-out;
+        }
+
+        @keyframes slideInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Enhanced Controls Section */
+        .controls-section {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--border-radius-large);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .search-filters {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            align-items: start;
+        }
+
+        .search-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .search-input-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1.2rem 1.5rem 1.2rem 3.5rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            font-weight: 400;
+            background: white;
+            color: var(--text-primary);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1.2rem;
+            color: #87CEEB;
+            font-size: 1.2rem;
+            pointer-events: none;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #4682B4;
+            box-shadow: 0 0 0 4px rgba(70, 130, 180, 0.2), var(--shadow-soft);
+            transform: translateY(-2px);
+        }
+
+        .search-input::placeholder {
+            color: #999;
+        }
+
+        .filter-select {
+            padding: 1.2rem 3rem 1.2rem 1.5rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            background: white;
+            color: var(--text-primary);
+            appearance: none;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-soft);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%234682B4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+        }
+
+        .filter-select:focus {
+            outline: none;
+            border-color: #4682B4;
+            box-shadow: 0 0 0 4px rgba(70, 130, 180, 0.2), var(--shadow-soft);
+            transform: translateY(-2px);
+        }
+
+        .add-btn {
+            background: var(--secondary-gradient);
+            color: white;
+            padding: 1.2rem 2.5rem;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-soft);
+            white-space: nowrap;
+            min-height: 54px;
+        }
+
+        .add-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-large);
+            background: linear-gradient(135deg, #2F4F4F 0%, #4682B4 100%);
+        }
+
+        .results-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Modern Pet Cards Grid */
+        .animals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .animal-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--border-radius-large);
+            overflow: hidden;
+            box-shadow: var(--shadow-medium);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            animation: cardSlideIn 0.6s ease-out forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .animal-card:nth-child(1) { animation-delay: 0.1s; }
+        .animal-card:nth-child(2) { animation-delay: 0.2s; }
+        .animal-card:nth-child(3) { animation-delay: 0.3s; }
+        .animal-card:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes cardSlideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animal-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--shadow-large);
+        }
+
+        .animal-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--secondary-gradient);
+        }
+
+        /* Pet Image Section */
+        .pet-image-container {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+            background: linear-gradient(45deg, #E6F3FF, #F0F8FF);
+        }
+
+        .pet-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .animal-card:hover .pet-image {
+            transform: scale(1.1);
+        }
+
+        .pet-image-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            background: var(--secondary-gradient);
+            color: white;
+        }
+
+        .pet-type-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: white;
+            color: var(--text-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .microchip-indicator {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--success-gradient);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        /* Card Content */
+        .card-content {
+            padding: 1.5rem;
+            background: white;
+        }
+
+        .pet-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .pet-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .pet-breed {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        /* Modern Detail Grid */
+        .pet-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .detail-item {
+            background: #F8F9FA;
+            border-radius: var(--border-radius);
+            padding: 1rem;
+            transition: all 0.3s ease;
+            border: 1px solid #E9ECEF;
+        }
+
+        .detail-item:hover {
+            background: #F1F3F4;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .detail-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.25rem;
+        }
+
+        .detail-value {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .gender-male { color: #4682B4; }
+        .gender-female { color: #DA70D6; }
+
+        /* Owner Info Section */
+        .owner-section {
+            background: #F0F8FF;
+            border-radius: var(--border-radius);
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #87CEEB;
+            border: 1px solid #E6F3FF;
+        }
+
+        .owner-name {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .owner-contact {
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        /* Medical Info Section */
+        .medical-section {
+            background: #F0FFFF;
+            border-radius: var(--border-radius);
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #20B2AA;
+            border: 1px solid #E0F8F8;
+        }
+
+        .medical-dates {
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .medical-notes {
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            font-style: italic;
+            line-height: 1.5;
+        }
+
+        /* Action Buttons */
+        .card-actions {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: flex-end;
+        }
+
+        .btn-edit, .btn-delete {
+            padding: 0.75rem 1.25rem;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-edit {
+            background: var(--secondary-gradient);
+            color: white;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .btn-edit:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .btn-delete {
+            background: var(--warning-gradient);
+            color: white;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .btn-delete:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        /* No Results State */
+        .no-results {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--border-radius-large);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .no-results-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+            color: #87CEEB;
+        }
+
+        .no-results h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .no-results p {
+            color: var(--text-primary);
+            font-size: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .search-filters {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .search-row {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .add-btn {
+                justify-self: stretch;
+            }
+            
+            .animals-grid {
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-container {
+                padding: 1rem;
+            }
+            
+            .page-header {
+                padding: 2rem 1.5rem;
+            }
+            
+            .controls-section {
+                padding: 1.5rem;
+            }
+            
+            .search-filters {
+                gap: 1rem;
+            }
+            
+            .animals-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .pet-details {
+                grid-template-columns: 1fr;
+            }
+            
+            .results-info {
+                flex-direction: column;
+                gap: 0.5rem;
+                align-items: flex-start;
+            }
+
+            .search-row {
+                gap: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-decoration">
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="floating-shape shape-3"></div>
+    </div>
+
+    <div class="page-container">
+        <div class="page-header">
+            <h1>🐾 Pet Records</h1>
+          
+        </div>
+
+        <div class="controls-section">
+            <div class="search-filters">
+                <input type="text" class="search-input" id="searchInput" placeholder="Search by pet name, owner, breed, or type...">
+              
+                
+                <select class="filter-select" id="typeFilter">
+                    <option value="">All Types</option>
+                    <option value="Dog">🐕 Dogs</option>
+                    <option value="Cat">🐱 Cats</option>
+                    <option value="Bird">🦜 Birds</option>
+                    <option value="Rabbit">🐰 Rabbits</option>
+                    <option value="Hamster">🐹 Hamsters</option>
+                    <option value="Other">🐾 Other</option>
+                </select>
+
+                <select class="filter-select" id="genderFilter">
+                    <option value="">All Genders</option>
+                    <option value="Male">♂️ Male</option>
+                    <option value="Female">♀️ Female</option>
+                </select>
+
+                <a href="AddAnimal.html" class="add-btn">
+                    ➕ Add New Pet
+                </a>
+            </div>
+
+            <div class="results-info">
+                <span id="resultsCount"><i class="fas fa-spinner fa-spin"></i> Loading pets...</span>
+                <span id="lastUpdated"><i class="fas fa-clock"></i> Last updated: Never</span>
+            </div>
+        </div>
+
+        <div class="animals-grid" id="animalsGrid">
+            <!-- Pet cards will be populated here -->
+        </div>
+
+        <div class="no-results" id="noResults" style="display: none;">
+            <div class="no-results-icon">🔍</div>
+            <h3>No pets found</h3>
+            <p><i class="fas fa-info-circle"></i> Try adjusting your search criteria or add a new pet record to get started.</p>
+        </div>
+    </div>    <script>
+        let allAnimals = [];
+        let filteredAnimals = [];
+
+        function formatDate(dateString) {
+            if (!dateString) return 'Not set';
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', { 
+                year: 'numeric', 
+                month: 'short', 
+                day: 'numeric' 
+            });
+        }
+
+        function getPetEmoji(type) {
+            const emojis = {
+                'Dog': '🐕',
+                'Cat': '🐱',
+                'Bird': '🦜',
+                'Rabbit': '🐰',
+                'Hamster': '🐹'
+            };
+            return emojis[type] || '🐾';
+        }
+
+        function createAnimalCard(animal) {
+            const petEmoji = getPetEmoji(animal.animal_type);
+            const defaultImagePath = `../Assets/images/${animal.animal_type.toLowerCase()}-placeholder.jpg`;
+            
+            return `
+                <div class="animal-card" data-id="${animal.id}">
+                    <div class="pet-image-container">
+                        <div class="pet-image-placeholder">${petEmoji}</div>
+                        <div class="pet-type-badge">${animal.animal_type}</div>
+                        ${animal.microchip ? '<div class="microchip-indicator"><i class="fas fa-microchip"></i> Microchipped</div>' : ''}
+                    </div>
+
+                    <div class="card-content">
+                        <div class="pet-header">
+                            <div class="pet-name">${animal.animal_name}</div>
+                            <div class="pet-breed">${animal.breed || 'Mixed breed'}</div>
+                        </div>
+
+                        <div class="pet-details">
+                            <div class="detail-item">
+                                <div class="detail-label">Color</div>
+                                <div class="detail-value">${animal.color || 'Not specified'}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Age</div>
+                                <div class="detail-value">${animal.age} years</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Gender</div>
+                                <div class="detail-value gender-${animal.gender.toLowerCase()}">
+                                    ${animal.gender === 'Male' ? '♂️' : '♀️'} ${animal.gender}
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Weight</div>
+                                <div class="detail-value">${animal.weight || 'Not recorded'}</div>
+                            </div>
+                        </div>
+
+                        <div class="owner-section">                            <div class="owner-name">
+                                <i class="fas fa-user"></i> ${animal.owner_name}
+                            </div>
+                            <div class="owner-contact">
+                                ${animal.owner_phone ? `<div class="contact-item">📞 ${animal.owner_phone}</div>` : ''}
+                                ${animal.owner_email ? `<div class="contact-item">📧 ${animal.owner_email}</div>` : ''}
+                            </div>
+                        </div>
+
+                        <div class="medical-section">
+                            <div class="medical-dates">
+                                <div>🏥 Last Check: ${formatDate(animal.check_date)}</div>
+                                ${animal.next_checkup ? `<div>📅 Next: ${formatDate(animal.next_checkup)}</div>` : ''}
+                            </div>
+                            ${animal.medical_notes ? `<div class="medical-notes">"${animal.medical_notes}"</div>` : ''}
+                        </div>                        <div class="card-actions">
+                            <button class="btn-edit" onclick="UpdateAnimal(${animal.id})">
+                                <i class="fas fa-edit"></i> Edit
+                            </button>
+                            <button class="btn-delete" onclick="deleteAnimal(${animal.id})">
+                                <i class="fas fa-trash"></i> Delete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderAnimals() {
+            const grid = document.getElementById('animalsGrid');
+            const noResults = document.getElementById('noResults');
+            const resultsCount = document.getElementById('resultsCount');
+
+            if (filteredAnimals.length === 0) {
+                grid.style.display = 'none';
+                noResults.style.display = 'block';
+                resultsCount.textContent = 'No pets found';
+            } else {
+                grid.style.display = 'grid';
+                noResults.style.display = 'none';
+                grid.innerHTML = filteredAnimals.map(createAnimalCard).join('');
+                resultsCount.textContent = `Showing ${filteredAnimals.length} pet${filteredAnimals.length !== 1 ? 's' : ''}`;
+            }
+
+            // Update last updated time
+            document.getElementById('lastUpdated').textContent = `Last updated: ${new Date().toLocaleTimeString()}`;
+        }
+
+        function filterAnimals() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const typeFilter = document.getElementById('typeFilter').value;
+            const genderFilter = document.getElementById('genderFilter').value;
+
+            filteredAnimals = allAnimals.filter(animal => {
+                const matchesSearch = !searchTerm || 
+                    animal.animal_name.toLowerCase().includes(searchTerm) ||
+                    animal.owner_name.toLowerCase().includes(searchTerm) ||
+                    animal.breed.toLowerCase().includes(searchTerm) ||
+                    animal.animal_type.toLowerCase().includes(searchTerm) ||
+                    animal.color.toLowerCase().includes(searchTerm);
+
+                const matchesType = !typeFilter || animal.animal_type === typeFilter;
+                const matchesGender = !genderFilter || animal.gender === genderFilter;
+
+                return matchesSearch && matchesType && matchesGender;
+            });
+
+            renderAnimals();
+        }        function UpdateAnimal(id) {
+            window.location.href = `updateAnimal.html?id=${id}`;
+        }
+
+        async function deleteAnimal(id) {
+            const animal = allAnimals.find(a => a.id === id);
+            if (!animal) return;
+
+            if (confirm(`Are you sure you want to delete ${animal.animal_name}'s record?\n\nThis action cannot be undone and will permanently remove all medical history and owner information.`)) {
+                try {
+                    const response = await fetch(`../CRUD/deleteAnimal.php`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ id: id })
+                    });
+
+                    const data = await response.json();
+
+                    if (!response.ok) {
+                        throw new Error(data.message || 'Failed to delete pet record');
+                    }
+
+                    showNotification(`${animal.animal_name}'s record has been deleted successfully.`, 'success');
+                    
+                    // Refresh the pets list
+                    await fetchPets();
+                } catch (error) {
+                    showNotification(error.message, 'error');
+                }
+            }
+        }
+
+        function showNotification(message, type = 'info') {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 2rem;
+                right: 2rem;
+                background: ${type === 'success' ? 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)' : 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)'};
+                color: white;
+                padding: 1rem 1.5rem;
+                border-radius: 12px;
+                font-weight: 600;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+                z-index: 1000;
+                animation: slideInRight 0.3s ease-out;
+                backdrop-filter: blur(20px);
+            `;
+            notification.textContent = message;
+
+            // Add animation styles
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes slideInRight {
+                    from { transform: translateX(100%); opacity: 0; }
+                    to { transform: translateX(0); opacity: 1; }
+                }
+                @keyframes slideOutRight {
+                    from { transform: translateX(0); opacity: 1; }
+                    to { transform: translateX(100%); opacity: 0; }
+                }
+            `;
+            document.head.appendChild(style);
+
+            document.body.appendChild(notification);
+
+            // Remove notification after 3 seconds
+            setTimeout(() => {
+                notification.style.animation = 'slideOutRight 0.3s ease-out';
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.parentNode.removeChild(notification);
+                    }
+                }, 300);
+            }, 3000);
+        }
+
+        // Enhanced event listeners with debouncing for search
+        let searchTimeout;
+        document.getElementById('searchInput').addEventListener('input', () => {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(filterAnimals, 300);
+        });
+
+        document.getElementById('typeFilter').addEventListener('change', filterAnimals);
+        document.getElementById('genderFilter').addEventListener('change', filterAnimals);
+
+        // Image loading error handling
+        function handleImageError(img) {
+            const animalType = img.closest('.animal-card').querySelector('.pet-type-badge').textContent;
+            const emoji = getPetEmoji(animalType);
+            img.parentNode.innerHTML = `<div class="pet-image-placeholder">${emoji}</div>`;
+        }        // Fetch pets from the server
+        async function fetchPets() {
+            try {
+                const response = await fetch('../CRUD/getAllPets.php');
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.message || 'Failed to fetch pets');
+                }
+
+                allAnimals = data.data;
+                filterAnimals();
+
+                // Add loading animation
+                setTimeout(() => {
+                    document.querySelectorAll('.animal-card').forEach((card, index) => {
+                        card.style.animationDelay = `${index * 0.1}s`;
+                    });
+                }, 100);
+
+            } catch (error) {
+                showNotification(error.message, 'error');
+                document.getElementById('resultsCount').textContent = 'Error loading pets';
+            }
+        }
+
+        // Initialize page
+        async function initializePage() {
+            await fetchPets();
+            console.log('Modern Pet Records page initialized successfully!');
+        }
+
+        // Event listener for image loading errors
+        document.addEventListener('error', (e) => {
+            if (e.target.tagName === 'IMG' && e.target.classList.contains('pet-image')) {
+                handleImageError(e.target);
+            }
+        }, true);
+
+        // Initialize when DOM is loaded
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializePage);
+        } else {
+            initializePage();
+        }
+
+        // Add smooth scroll behavior for better UX
+        document.documentElement.style.scrollBehavior = 'smooth';
+    </script>
+</body>
+</html>

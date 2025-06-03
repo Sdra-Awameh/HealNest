@@ -1,14 +1,11 @@
 <?php
-$host = "localhost";
-$user = "root";
-$password = "";
-$dbname = "HealNestDB";
-
-
-$conn = new mysqli($host, $user, $password, $dbname);
-
-
-if ($conn->connect_error) {
-    die("connection failed" . $conn->connect_error);
-}
-?>
+return [
+    'db' => [
+        'host' => 'localhost',
+        'port' => 3306,
+        'dbname' => 'HealNestDB',
+        'username' => 'root',
+        'password' => '',
+        'charset' =>'utf8'
+]
+];

@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>HealNest - Edit Pet Record</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="EditAnimalStyle.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../Assets/css/UpdateAnimalStyle.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </head>
 <body>
     <div class="page-container">
@@ -15,7 +18,8 @@
                 <p class="subtitle">Update pet details below</p>
             </div>
 
-            <form action="edit_animal.php" method="POST" id="editPetForm">
+            <form id="editPetForm">
+                <input type="hidden" id="petId" name="id">
                 <div class="form-section">
                     <h3>Pet Information</h3>
 
@@ -113,10 +117,98 @@
             </form>
         </div>
     </div>
-
+    <script src="../Assets/js/notifications.js"></script>
+    <script src="../Assets/js/backend-conn.js"></script>    
     <script>
-        document.getElementById('editPetForm').addEventListener('submit', function(e) {
-            console.log('Form submitted');
+        const urlParams = new URLSearchParams(window.location.search);
+        const petId = urlParams.get('id');
+        
+        if (!petId) {
+            showNotification('No pet ID provided', 'error');
+        
+        } else {
+            document.getElementById('petId').value = petId;
+            // Fetch pet data
+            fetch(`../CRUD/getPetById.php?id=${petId}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        const pet = data.data;
+                        // Fill the form with pet data
+                        document.getElementById('animalName').value = pet.animal_name;
+                        document.getElementById('animalType').value = pet.animal_type;
+                        document.getElementById('breed').value = pet.breed;
+                        document.getElementById('color').value = pet.color;
+                        document.getElementById('age').value = pet.age;
+                        document.getElementById('gender').value = pet.gender;
+                        document.getElementById('microchip').value = pet.microchip;
+                        document.getElementById('owner').value = pet.owner_name;
+                        document.getElementById('ownerPhone').value = pet.owner_phone;
+                        document.getElementById('ownerEmail').value = pet.owner_email;
+                        document.getElementById('checkDate').value = pet.check_date;
+                        document.getElementById('nextCheckup').value = pet.next_checkup;
+                        document.getElementById('medicalNotes').value = pet.medical_notes;
+                    } else {
+                        showNotification(data.message || 'Error fetching pet data', 'error');
+                    }
+                })
+                .catch(error => {
+                    showNotification('Error fetching pet data', 'error');
+                    console.error('Error:', error);
+                });
+        }
+
+        document.getElementById('editPetForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Disable submit button to prevent double submission
+            const submitButton = this.querySelector('button[type="submit"]');
+            submitButton.disabled = true;
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Updating...';
+            
+            const formData = {
+                id: document.getElementById('petId').value,
+                animal_name: document.getElementById('animalName').value,
+                animal_type: document.getElementById('animalType').value,
+                breed: document.getElementById('breed').value,
+                color: document.getElementById('color').value,
+                age: parseFloat(document.getElementById('age').value),
+                gender: document.getElementById('gender').value,
+                microchip: document.getElementById('microchip').value,
+                owner_name: document.getElementById('owner').value,
+                owner_phone: document.getElementById('ownerPhone').value,
+                owner_email: document.getElementById('ownerEmail').value,
+                check_date: document.getElementById('checkDate').value,
+                next_checkup: document.getElementById('nextCheckup').value,
+                medical_notes: document.getElementById('medicalNotes').value
+            };
+
+            try {
+                const response = await fetch('../CRUD/UpdateAnimal.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.message || 'Failed to update pet record');
+                }
+
+                showNotification('Pet record updated successfully!', 'success');
+                setTimeout(() => {
+                    window.location.href = 'ViewAnimal.html';
+                }, 3000);
+
+            } catch (error) {
+                showNotification(error.message, 'error');
+                // Re-enable submit button
+                submitButton.disabled = false;
+                submitButton.innerHTML = 'Update Pet Record';
+            }
         });
     </script>
 </body>

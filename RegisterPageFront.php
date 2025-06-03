@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>User Register - HealNest</title>
-  <link rel="stylesheet" href="RegisterPage.css">
+  <link rel="stylesheet" href="./Assets/css/RegisterPage.css">
+  
 </head>
 <body>
 
@@ -16,24 +17,22 @@
 
     <form action="register-user-back.php" method="post">
       <?php
-session_start();
-if (isset($_SESSION['register_error'])) {
-    echo "<div style='
-        background-color: #ffe0e0;
-        color: #a94442;
-        padding: 12px 16px;
-        border: 1px solid #f5c6cb;
-        border-radius: 8px;
-        font-size: 15px;
-        margin-bottom: 15px;
-        text-align: center;
-        font-family: Roboto, sans-serif;
-    '>" . $_SESSION['register_error'] . "</div>";
-    unset($_SESSION['register_error']);
-}
-?>
-
-
+          session_start();
+          if (isset($_SESSION['register_error'])) {
+              echo "<div style='
+                  background-color: #ffe0e0;
+                  color: #a94442;
+                  padding: 12px 16px;
+                  border: 1px solid #f5c6cb;
+                  border-radius: 8px;
+                  font-size: 15px;
+                  margin-bottom: 15px;
+                  text-align: center;
+                  font-family: Roboto, sans-serif;
+              '>" . $_SESSION['register_error'] . "</div>";
+              unset($_SESSION['register_error']);
+          }
+          ?>
       <div class="form-group">
         <label for="username">Full Name</label>
         <input type="text" id="username" name="name" class="form-control" required />

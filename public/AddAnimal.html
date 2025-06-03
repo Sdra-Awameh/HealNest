@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HealNest - Add Pet Record</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="AddAnimalStyle.css">
+    <title>HealNest - Add Pet Record</title>    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../Assets/css/AddAnimalStyle.css">
+    <!-- Toastify CSS and JS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </head>
 <body>
     <div class="page-container">
@@ -122,12 +125,56 @@
             </form>
         </div>
     </div>
-
+    <script src="../Assets/js/notifications.js"></script>
+    <script src="../Assets/js/backend-conn.js"></script>
     <script>
-        // Basic form validation
-        document.getElementById('addPetForm').addEventListener('submit', function(e) {
-            // You can add custom validation here if needed
-            console.log('Form submitted');
+        document.getElementById('addPetForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            // Disable submit button to prevent double submission
+            const submitButton = this.querySelector('button[type="submit"]');
+            submitButton.disabled = true;
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Adding...';
+            
+            const formData = {
+                animal_name: document.getElementById('animalName').value,
+                animal_type: document.getElementById('animalType').value,
+                breed: document.getElementById('breed').value,
+                color: document.getElementById('color').value,
+                age: parseFloat(document.getElementById('age').value),
+                gender: document.getElementById('gender').value,
+                microchip: document.getElementById('microchip').value,
+                owner_name: document.getElementById('owner').value,
+                owner_phone: document.getElementById('ownerPhone').value,
+                owner_email: document.getElementById('ownerEmail').value,
+                check_date: document.getElementById('checkDate').value,
+                next_checkup: document.getElementById('nextCheckup').value,
+                medical_notes: document.getElementById('medicalNotes').value
+            };
+
+            try {
+                const response = await fetch('../CRUD/addAnimal.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.message || 'Failed to add pet record');
+                }
+
+                showNotification('Pet record added successfully!', 'success');
+                setTimeout(() => {
+                    window.location.href = 'ViewAnimal.html';
+                }, 3000);
+
+            } catch (error) {
+                showNotification(error.message, 'error');
+            }
         });
     </script>
 </body>

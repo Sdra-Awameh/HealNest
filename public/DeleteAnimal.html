@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delete Animal Health Record</title>  <link rel="stylesheet" href="../Assets/css/DeleteAnimalStyle.css">
+  <script src="../Assets/js/notifications.js"></script>
+</head>
+<body>
+  <div class="page-container">
+    <div class="form-container">
+      <form id="deleteForm" onsubmit="deletePet(event);">
+        <div class="form-header">
+          <h2>⚠️ Delete Pet</h2>
+          <p class="subtitle">You are about to delete this animal's health record. This action cannot be undone.</p>
+        </div>
+          <!-- Hidden input for Pet ID -->
+        <div class="input-group">
+          <label for="petId">Pet ID</label>
+          <input type="number" id="petId" name="petId" required>
+        </div>
+
+       
+        <!-- Button Group -->
+        <div class="button-group">
+          <button type="button" class="button secondary" onclick="window.location.href='HomePage.html'">Cancel</button>
+          <button type="submit" class="button primary">Delete Record</button>
+        </div>
+      </form>
+    </div>
+  </div>      <script>        async function deletePet(event) {
+            event.preventDefault();
+            
+            const petId = document.getElementById('petId').value;
+            
+            try {
+                // First try DELETE
+                let response = await fetch('../CRUD/deleteAnimal.php', {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    body: JSON.stringify({
+                        id: petId
+                    })
+                });
+
+                // If DELETE fails, try POST
+                if (response.status === 405) {
+                    response = await fetch('../CRUD/deleteAnimal.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-Requested-With': 'XMLHttpRequest'
+                        },
+                        body: JSON.stringify({
+                            id: petId
+                        })
+                    });
+                }
+
+                const data = await response.json();
+                
+                if (data.status === 'success') {
+                    showNotification('Pet deleted successfully', 'success');
+                    setTimeout(() => {
+                        window.location.href = 'HomePage.html';
+                    }, 2000);
+                } else {
+                    showNotification(data.message || 'Failed to delete pet', 'error');
+                }
+            } catch (error) {
+                showNotification('Error deleting pet', 'error');
+                console.error('Error:', error);
+            }
+        }
+      </script>
+</body>
+</html>

@@ -7,7 +7,7 @@
     --text-color: #333333;         /* Dark gray for text */
     --light-gray: #f5f5f5;         /* Light gray for backgrounds */
     --mid-gray: #e0e0e0;           /* Medium gray for borders */
-    --error-color: #f44336;        /* Red for errors/alerts */
+
     --success-color: #4CAF50;      /* Green for success messages */
     --border-radius: 8px;          /* Rounded corners for elements */
     --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Subtle shadow */
@@ -21,7 +21,7 @@
   }
   
   body {
-    background: url('Assets/freepik__upload__495621.jpg') no-repeat center fixed;
+    background: url('../images/freepik__upload__495621.jpg') no-repeat center fixed;
     background-size: cover;
     color: var(--text-color);
     line-height: 1.6;
@@ -174,8 +174,18 @@
     background-color: var(--primary-hover);
   }
   
-
- 
+  .button.secondary {
+    background-color: #f1f1f1;
+    color: #333;
+  }
+  
+  .button.secondary:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .button:active {
+    transform: scale(0.98);
+  }
   
   /* Visual feedback for form validation */
   input:invalid:focus,
